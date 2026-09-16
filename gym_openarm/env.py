@@ -6,7 +6,6 @@ import gymnasium as gym
 import mujoco
 import numpy as np
 from gymnasium import spaces
-from openarm_mujoco.v2 import JointResolver
 
 from gym_openarm.constants import (
     ARM_DIM,
@@ -23,7 +22,13 @@ from gym_openarm.constants import (
     STATE_NAMES,
 )
 from gym_openarm.tasks import Task, make_task
-from gym_openarm.utils import camera_id, camera_resolution, keyframe_qpos, name_to_id
+from gym_openarm.utils import (
+    JointResolver,
+    camera_id,
+    camera_resolution,
+    keyframe_qpos,
+    name_to_id,
+)
 
 OBS_TYPES = ("pixels", "pixels_agent_pos")
 

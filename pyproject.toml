@@ -16,7 +16,6 @@ dependencies = [
   "gymnasium>=1.0",
   "mujoco>=3.6",
   "numpy>=1.26",
-  "openarm-mujoco>=2.2",
 ]
 
 [project.optional-dependencies]

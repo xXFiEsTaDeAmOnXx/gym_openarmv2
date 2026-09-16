@@ -100,7 +100,7 @@ Compatibility with the dataset:
 
 | | Dataset / policy | This env |
 |---|---|---|
-| scene | OpenArm Cell, orange cube | `openarm_mujoco` v2 `cell/demo.xml` (same MJCF) |
+| scene | OpenArm Cell, orange cube | `gym_openarm/assets/cell/demo.xml`, vendored from `openarm_mujoco` v2 |
 | `action` / `observation.state` | 16-d, `right` joints 1–7 + gripper, then `left` | identical order, see `constants.STATE_NAMES` |
 | control rate | 30 Hz | 30 Hz (33 MuJoCo substeps of 1 ms) |
 | cameras | `ceiling`, `head_left`, `head_right`, `wrist_left`, `wrist_right` | same names, native MJCF resolutions |
@@ -191,7 +191,8 @@ uv run pytest
 ## Acknowledgment
 
 Layout adapted from [`gym-aloha`](https://github.com/huggingface/gym-aloha).
-Scene from [`openarm_mujoco`](https://github.com/openarm/openarm_mujoco);
+Cell scene and meshes vendored from
+[`openarm_mujoco`](https://github.com/enactic/openarm_mujoco) (Apache-2.0);
 [`dataset`](https://huggingface.co/datasets/enactic/openarm-2-cell-pick_up_cube_mujoco-lerobot)
 and [`ACT policy`](https://huggingface.co/enactic/act-openarm-2-cell-pick_up_cube_mujoco)
 by Enactic.

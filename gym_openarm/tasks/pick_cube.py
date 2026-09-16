@@ -1,8 +1,9 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import mujoco
 import numpy as np
-import openarm_mujoco.v2 as openarm_mujoco
 
 from gym_openarm.tasks.base import Task
 from gym_openarm.utils import (
@@ -49,7 +50,7 @@ class PickCubeTask(Task):
 
     @property
     def xml_path(self) -> str:
-        return openarm_mujoco.openarm_demo_xml()
+        return str(Path(__file__).resolve().parent.parent / "assets" / "cell" / "demo.xml")
 
     def setup(self, model: mujoco.MjModel) -> None:
         self._cube_body = body_id(model, CUBE_BODY)
