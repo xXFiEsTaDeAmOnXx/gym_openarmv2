@@ -15,6 +15,12 @@ uv sync                     # environment only
 
 ## Quickstart
 
+`example.py` needs the `video` extra:
+
+```bash
+uv sync --extra video
+```
+
 ```python
 # example.py
 import imageio
@@ -124,7 +130,7 @@ The cube is set down inside the black tray.
 Install the project with dev dependencies:
 
 ```bash
-uv sync --extra lerobot --group dev
+uv sync --extra lerobot --extra video --group dev
 ```
 
 ### Follow our style
