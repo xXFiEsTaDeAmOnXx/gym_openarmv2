@@ -13,13 +13,6 @@ uv sync --extra lerobot     # environment + LeRobot (for lerobot-eval)
 uv sync                     # environment only
 ```
 
-MuJoCo renders offscreen, so pick a backend before running headless (see [GPU Rendering](#-gpu-rendering-egl)):
-
-```bash
-export MUJOCO_GL=egl        # GPU machines
-export MUJOCO_GL=osmesa     # CPU only (needs libosmesa6)
-```
-
 ## Quickstart
 
 ```python
@@ -157,13 +150,6 @@ center, no position/yaw randomization); re-enable randomization via the task's
 - `visualization_width`: (int) Render width of `render()`. Default is `960`.
 - `task_kwargs`: (dict) Extra keyword arguments forwarded to the task.
 
-### 🔧 GPU Rendering (EGL)
-
-Rendering on the GPU can be significantly faster than CPU. Set `MUJOCO_GL=egl`
-on GPU machines; on CPU-only machines use `MUJOCO_GL=osmesa` (needs the
-`libosmesa6` system package). If rendering fails, check `MUJOCO_LOG.TXT` for
-MuJoCo OpenGL errors.
-
 ## Contribute
 
 Install the project with dev dependencies:
@@ -190,12 +176,12 @@ uv run pytest
 
 ## Acknowledgment
 
-Layout adapted from [`gym-aloha`](https://github.com/huggingface/gym-aloha).
-Cell scene and meshes vendored from
-[`openarm_mujoco`](https://github.com/enactic/openarm_mujoco) (Apache-2.0);
-[`dataset`](https://huggingface.co/datasets/enactic/openarm-2-cell-pick_up_cube_mujoco-lerobot)
-and [`ACT policy`](https://huggingface.co/enactic/act-openarm-2-cell-pick_up_cube_mujoco)
-by Enactic.
+- Layout adapted from [`gym-aloha`](https://github.com/huggingface/gym-aloha).
+- Cell scene and meshes vendored from
+  [`openarm_mujoco`](https://github.com/enactic/openarm_mujoco) (Apache-2.0).
+- [`Dataset`](https://huggingface.co/datasets/enactic/openarm-2-cell-pick_up_cube_mujoco-lerobot)
+  and [`ACT policy`](https://huggingface.co/enactic/act-openarm-2-cell-pick_up_cube_mujoco)
+  by Enactic.
 
 ## License
 
