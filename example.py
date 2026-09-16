@@ -1,9 +1,9 @@
 import imageio
 import gymnasium as gym
 import numpy as np
-import gym_openarm
+import gym_openarmv2
 
-env = gym.make("gym_openarm/OpenArmPickCube-v0")
+env = gym.make("gym_openarmv2/OpenArmPickCube-v0")
 observation, info = env.reset()
 frames = []
 

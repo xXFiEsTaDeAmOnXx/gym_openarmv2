@@ -5,8 +5,8 @@ from pathlib import Path
 import mujoco
 import numpy as np
 
-from gym_openarm.tasks.base import Task
-from gym_openarm.utils import (
+from gym_openarmv2.tasks.base import Task
+from gym_openarmv2.utils import (
     bodies_in_contact,
     body_geom_ids,
     body_id,

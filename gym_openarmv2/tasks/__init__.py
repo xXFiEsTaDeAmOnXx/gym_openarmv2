@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from gym_openarm.tasks.base import Task
-from gym_openarm.tasks.pick_cube import PickCubeTask
+from gym_openarmv2.tasks.base import Task
+from gym_openarmv2.tasks.pick_cube import PickCubeTask
 
 TASKS: dict[str, type[Task]] = {
     "pick_cube": PickCubeTask,

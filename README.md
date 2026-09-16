@@ -1,4 +1,4 @@
-# gym-openarm
+# gym-openarmv2
 
 A gym environment for the OpenArm Cell.
 
@@ -27,9 +27,9 @@ export MUJOCO_GL=osmesa     # CPU only (needs libosmesa6)
 import imageio
 import gymnasium as gym
 import numpy as np
-import gym_openarm
+import gym_openarmv2
 
-env = gym.make("gym_openarm/OpenArmPickCube-v0")
+env = gym.make("gym_openarmv2/OpenArmPickCube-v0")
 observation, info = env.reset()
 frames = []
 
@@ -55,8 +55,8 @@ so `lerobot-eval` drives it exactly like `pusht` or `aloha`:
 uv run lerobot-eval \
   --policy.path=enactic/act-openarm-2-cell-pick_up_cube_mujoco \
   --policy.device=cuda \
-  --env.type=openarm \
-  --env.discover_packages_path=gym_openarm \
+  --env.type=openarmv2 \
+  --env.discover_packages_path=gym_openarmv2 \
   --eval.n_episodes=10 \
   --eval.batch_size=5
 ```
@@ -100,7 +100,7 @@ Compatibility with the dataset:
 
 | | Dataset / policy | This env |
 |---|---|---|
-| scene | OpenArm Cell, orange cube | `gym_openarm/assets/cell/demo.xml`, vendored from `openarm_mujoco` v2 |
+| scene | OpenArm Cell, orange cube | `gym_openarmv2/assets/cell/demo.xml`, vendored from `openarm_mujoco` v2 |
 | `action` / `observation.state` | 16-d, `right` joints 1–7 + gripper, then `left` | identical order, see `constants.STATE_NAMES` |
 | control rate | 30 Hz | 30 Hz (33 MuJoCo substeps of 1 ms) |
 | cameras | `ceiling`, `head_left`, `head_right`, `wrist_left`, `wrist_right` | same names, native MJCF resolutions |
@@ -138,10 +138,10 @@ center, no position/yaw randomization); re-enable randomization via the task's
 
 ```python
 >>> import gymnasium as gym
->>> import gym_openarm
->>> env = gym.make("gym_openarm/OpenArmPickCube-v0", obs_type="pixels_agent_pos", render_mode="rgb_array")
+>>> import gym_openarmv2
+>>> env = gym.make("gym_openarmv2/OpenArmPickCube-v0", obs_type="pixels_agent_pos", render_mode="rgb_array")
 >>> env
-<TimeLimit<OrderEnforcing<PassiveEnvChecker<OpenArmEnv<gym_openarm/OpenArmPickCube-v0>>>>>
+<TimeLimit<OrderEnforcing<PassiveEnvChecker<OpenArmEnv<gym_openarmv2/OpenArmPickCube-v0>>>>>
 ```
 
 - `task`: (str) The task to load. Only `pick_cube` for now.

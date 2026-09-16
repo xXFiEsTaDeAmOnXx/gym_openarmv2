@@ -722,7 +722,7 @@ wheels = [
 ]
 
 [[package]]
-name = "gym-openarm"
+name = "gym-openarmv2"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

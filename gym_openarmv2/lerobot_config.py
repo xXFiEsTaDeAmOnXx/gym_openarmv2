@@ -6,7 +6,7 @@ from lerobot.configs import FeatureType, PolicyFeature
 from lerobot.envs import EnvConfig
 from lerobot.utils.constants import ACTION, OBS_IMAGE, OBS_IMAGES, OBS_STATE
 
-from gym_openarm.constants import (
+from gym_openarmv2.constants import (
     CAMERA_RESOLUTIONS,
     CAMERAS,
     DEFAULT_CAMERAS,
@@ -15,7 +15,7 @@ from gym_openarm.constants import (
 )
 
 
-@EnvConfig.register_subclass("openarm")
+@EnvConfig.register_subclass("openarmv2")
 @dataclass
 class OpenArmEnv(EnvConfig):
     task: str | None = "OpenArmPickCube-v0"

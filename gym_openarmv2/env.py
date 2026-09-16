@@ -7,7 +7,7 @@ import mujoco
 import numpy as np
 from gymnasium import spaces
 
-from gym_openarm.constants import (
+from gym_openarmv2.constants import (
     ARM_DIM,
     ARMS,
     CAMERAS,
@@ -21,8 +21,8 @@ from gym_openarm.constants import (
     STATE_DIM,
     STATE_NAMES,
 )
-from gym_openarm.tasks import Task, make_task
-from gym_openarm.utils import (
+from gym_openarmv2.tasks import Task, make_task
+from gym_openarmv2.utils import (
     JointResolver,
     camera_id,
     camera_resolution,

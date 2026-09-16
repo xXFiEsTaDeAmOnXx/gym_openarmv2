@@ -2,7 +2,7 @@ import gymnasium as gym
 import pytest
 from gymnasium.utils.env_checker import check_env
 
-import gym_openarm  # noqa: F401
+import gym_openarmv2  # noqa: F401
 
 
 @pytest.mark.parametrize(
@@ -13,5 +13,5 @@ import gym_openarm  # noqa: F401
     ],
 )
 def test_openarm(env_task, obs_type):
-    env = gym.make(f"gym_openarm/{env_task}", obs_type=obs_type)
+    env = gym.make(f"gym_openarmv2/{env_task}", obs_type=obs_type)
     check_env(env.unwrapped)

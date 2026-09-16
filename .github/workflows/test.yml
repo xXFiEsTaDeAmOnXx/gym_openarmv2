@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "gym_openarm/**"
+      - "gym_openarmv2/**"
       - "tests/**"
       - "example.py"
       - ".github/**"
@@ -14,7 +14,7 @@ on:
     branches:
       - main
     paths:
-      - "gym_openarm/**"
+      - "gym_openarmv2/**"
       - "tests/**"
       - "example.py"
       - ".github/**"
