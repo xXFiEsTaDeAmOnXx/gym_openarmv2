@@ -1,0 +1,70 @@
+[project]
+name = "gym-openarm"
+version = "0.1.0"
+description = "Gymnasium environments for the bimanual OpenArm Cell, compatible with LeRobot"
+readme = "README.md"
+license = { text = "Apache-2.0" }
+requires-python = ">=3.12"  # LeRobot 0.6.1 requires 3.12+
+keywords = ["robotics", "gymnasium", "mujoco", "lerobot", "openarm", "imitation learning"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: Apache Software License",
+  "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+  "gymnasium>=1.0",
+  "mujoco>=3.6",
+  "numpy>=1.26",
+  "openarm-mujoco>=2.2",
+]
+
+[project.optional-dependencies]
+# Only needed by example.py.
+video = ["imageio[ffmpeg]>=2.34"]
+# Pinned to the release that reads LeRobot dataset v3.0, as in the OpenArm docs.
+lerobot = ["lerobot[training]==0.6.1"]
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.14"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["gym_openarm"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = [
+    "example.py",
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".git-rewrite",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".pytype",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv",
+]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "N", "B", "C4", "SIM"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1,0 +1,47 @@
+name: Tests
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "gym_openarm/**"
+      - "tests/**"
+      - "example.py"
+      - ".github/**"
+      - "uv.lock"
+  push:
+    branches:
+      - main
+    paths:
+      - "gym_openarm/**"
+      - "tests/**"
+      - "example.py"
+      - ".github/**"
+      - "uv.lock"
+
+jobs:
+  pytest:
+    name: Pytest
+    runs-on: ubuntu-latest
+    env:
+      MUJOCO_GL: egl
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+
+      - name: Install EGL
+        run: sudo apt-get update && sudo apt-get install -y libegl1-mesa-dev
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: uv sync --extra lerobot
+
+      - name: Test with pytest
+        run: uv run pytest tests -v
